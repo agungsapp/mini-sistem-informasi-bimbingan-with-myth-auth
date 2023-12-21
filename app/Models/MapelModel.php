@@ -11,7 +11,7 @@ class MapelModel extends Model
     protected $primaryKey       = 'id_mapel';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
-    protected $returnType       = 'array';
+    protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = ['judul', 'deskripsi', 'hari', 'jam', 'id_user'];
@@ -52,6 +52,15 @@ class MapelModel extends Model
     {
         $query   = $this->db->query('SELECT m.id_mapel, m.judul, m.hari, m.jam, u.nama as guru FROM mapel m
         JOIN users u on u.id = m.id_user');
+        $results = $query->getResult();
+
+        return $results;
+    }
+
+    public function getMapelByIdGuru($id)
+    {
+        $query   = $this->db->query('SELECT m.id_mapel, m.judul, m.hari, m.jam, u.nama as guru FROM mapel m
+        JOIN users u on u.id = m.id_user WHERE m.id_user =' . $id);
         $results = $query->getResult();
 
         return $results;

@@ -4,7 +4,7 @@
 <?php $session = session(); ?>
 <div class="col-12">
 
-  <h1>Selamat datang </h1>
+  <h1>Selamat datang <?= user()->nama; ?> </h1>
   <?php if (session()->getFlashdata('error')) : ?>
     <div class="alert alert-danger">
       <?= session()->getFlashdata('error'); ?>
@@ -18,7 +18,7 @@
   <?php endif; ?>
 </div>
 
-<div class="col-md-9">
+<div class="col-12">
   <div class="content">
     <h3 style="font-weight: bold;">Jadwal Kelas</h3>
     <hr>
@@ -41,15 +41,15 @@
             <div class="modal-body">
 
               <div class="mb-3">
-                <input class="form-control" id="judul" name="judul" type="text" placeholder="masukan nama kelas ...">
+                <input class="form-control" id="judul" name="judul" type="text" placeholder="masukan nama kelas ..." required>
               </div>
 
               <div class="mb-3">
-                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" placeholder="masukan deskripsi kelas..."></textarea>
+                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" placeholder="masukan deskripsi kelas..." required></textarea>
               </div>
 
               <div class="mb-3">
-                <select name="hari" class=" form-select form-control">
+                <select name="hari" class=" form-select form-control" required>
                   <option selected>-- pilih hari --</option>
                   <option value="senin">senin</option>
                   <option value="selasa">selasa</option>
@@ -97,8 +97,8 @@
               <td><?= $m->hari; ?></td>
               <td><?= $m->jam; ?></td>
               <td>
-                <a href="#" class="btn btn-warning">Edit</a>
-                <a href="#" class="btn btn-danger">Delete</a>
+                <a href="/guru/home/edit/<?= $m->id_mapel; ?>" class="btn btn-sm btn-warning">Edit</a>
+                <a href="/guru/home/delete/<?= $m->id_mapel; ?>" class="btn btn-sm btn-danger">Delete</a>
               </td>
               </tr>
             <?php endforeach ?>
@@ -113,10 +113,10 @@
 
   </div>
 </div>
-<div class="col-md-3">
+<!-- <div class="col-md-3">
   <div class="sidebar1">
     <h5 style="font-weight: bold;">Absensi Guru</h5>
     <hr>
   </div>
-</div>
+</div> -->
 <?= $this->endSection() ?>
