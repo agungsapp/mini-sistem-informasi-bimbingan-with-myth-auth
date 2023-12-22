@@ -41,15 +41,15 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <div class="container px-4 px-lg-5">
-          <a class="navbar-brand" href="<?= base_url('/home/siswa'); ?> ">
+          <a class="navbar-brand" href="<?= base_url('/guru/home'); ?> ">
             <img class="logoheader" style="margin-top: auto;" src="<?= base_url('/assets/images/logotec.jpg'); ?> ">
           </a>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto my-2 my-lg-0">
-              <li class="nav-item"><a class="nav-link <?= $nav == 1 ? 'active' : ''; ?> " href="<?= base_url('/home/guru'); ?>">HOME</a></li>
-              <li class="nav-item"><a class="nav-link <?= $nav == 2 ? 'active' : ''; ?> " href="<?= base_url('/status/guru'); ?>">SALARY STATUS</a></li>
-              <li class="nav-item"><a class="nav-link <?= $nav == 3 ? 'active' : ''; ?> " href="<?= base_url('/progress/guru'); ?>">LEARNING PROGRESS</a></li>
-              <li class="nav-item"><a class="nav-link <?= $nav == 4 ? 'active' : ''; ?> " href="<?= base_url('/tryout/guru'); ?>">TRY OUT</a></li>
+              <li class="nav-item"><a class="nav-link <?= $nav == 1 ? 'active' : ''; ?> " href="<?= base_url('/guru/home'); ?>">HOME</a></li>
+              <li class="nav-item"><a class="nav-link <?= $nav == 2 ? 'active' : ''; ?> " href="<?= base_url('/guru/salary'); ?>">SALARY STATUS</a></li>
+              <li class="nav-item"><a class="nav-link <?= $nav == 3 ? 'active' : ''; ?> " href="<?= base_url('/guru/learning'); ?>">LEARNING PROGRESS</a></li>
+              <li class="nav-item"><a class="nav-link <?= $nav == 4 ? 'active' : ''; ?> " href="<?= base_url('/guru/tryOut'); ?>">TRY OUT</a></li>
               <li class="nav-item"><a class="nav-link " href=" <?= base_url('/logout'); ?>">LOGOUT</a></li>
             </ul>
           </div>

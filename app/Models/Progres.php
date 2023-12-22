@@ -4,24 +4,22 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class MapelModel extends Model
+class Progres extends Model
 {
-    protected $DBGroup          = 'default';
-    protected $table            = 'mapel';
-    protected $primaryKey       = 'id_mapel';
+    protected $table            = 'progres';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
-    protected $insertID         = 0;
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['judul', 'deskripsi', 'hari', 'jam', 'id_user'];
+    protected $allowedFields    = ['id_siswa', 'id_mapel', 'score', 'komentar'];
 
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
-    // protected $deletedField  = 'deleted_at';
+    protected $deletedField  = 'deleted_at';
 
     // Validation
     protected $validationRules      = [];
@@ -40,7 +38,9 @@ class MapelModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
+
     protected $db;
+
 
     public function __construct()
     {
@@ -48,22 +48,13 @@ class MapelModel extends Model
         $this->db = \Config\Database::connect();
     }
 
-
-    public function getMapelWithGuru()
+    public function getDataKomentar($id_guru)
     {
-        $query   = $this->db->query('SELECT m.id_mapel, m.judul, m.hari, m.jam, u.nama as guru FROM mapel m
-        JOIN users u on u.id = m.id_user');
-        $results = $query->getResult();
+        $query = $this->db->query("SELECT u.nama as siswa, p.id , p.score, m.judul as mapel, p.komentar FROM progres p
+JOIN mapel m ON m.id_mapel = p.id_mapel
+JOIN users u ON u.id = p.id_siswa
+WHERE m.id_user = $id_guru")->getResult();
 
-        return $results;
-    }
-
-    public function getMapelByIdGuru($id)
-    {
-        $query   = $this->db->query('SELECT m.id_mapel, m.judul, m.hari, m.jam, u.nama as guru FROM mapel m
-        JOIN users u on u.id = m.id_user WHERE m.id_user =' . $id);
-        $results = $query->getResult();
-
-        return $results;
+        return $query;
     }
 }
