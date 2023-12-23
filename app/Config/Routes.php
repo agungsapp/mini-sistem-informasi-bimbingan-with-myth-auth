@@ -13,6 +13,9 @@ $routes->get('/', function () {
   return redirect()->to('/check');
 });
 $routes->get('/check', [CheckRole::class, 'check_role']);
+$routes->get('/welcome', function () {
+  return view('welcome/index');
+});
 
 
 // noted : role guru belum sempurna

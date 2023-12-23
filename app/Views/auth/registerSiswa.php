@@ -63,7 +63,8 @@
                         <button type="submit" class="btn btn-primary btn-xl" id="regisButton">Register</button>
                     </div>
                 </form>
-                <p>Anda orang tua siswa ? <a href="/registerOrtu">Daftar</a></p>
+                <p class="mt-3">Anda orang tua siswa ? <a href="/registerOrtu">Daftar</a></p>
+                <p class="mt-3">Anda sudah punya akun ? <a href="/login">login</a></p>
             </div>
         </div>
     </div>

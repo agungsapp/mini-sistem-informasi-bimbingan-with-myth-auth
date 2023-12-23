@@ -32,7 +32,7 @@ class Auth extends BaseConfig
      * @var string
      */
 
-    public $landingRoute = '/check';
+    public $landingRoute = '/';
 
     /**
      * --------------------------------------------------------------------

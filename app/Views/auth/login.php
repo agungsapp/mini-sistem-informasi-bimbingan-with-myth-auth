@@ -8,7 +8,7 @@
         </a>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                <li class="nav-item"><a class="nav-link" href="<?= base_url('/register'); ?> ">Register</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= base_url('/registerSiswa'); ?> ">Register</a></li>
             </ul>
         </div>
     </div>

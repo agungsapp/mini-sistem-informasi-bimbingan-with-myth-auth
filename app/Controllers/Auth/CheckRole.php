@@ -14,31 +14,6 @@ class CheckRole extends BaseController
     public function check_role()
     {
 
-        // Dapatkan Database Builder
-        // $db = \Config\Database::connect();
-
-        // ID pengguna
-        // $id = user_id(); 
-        // dd(user_id(), logged_in(), in_groups('siswa'));
-
-        // Buat dan jalankan query
-        // $query = $db->table('auth_groups_users')
-        //     ->where('user_id', $id)
-        //     ->get();
-
-        // Dapatkan hasilnya
-        // $result = $query->getResultArray();
-
-        // Tampilkan hasil (atau bisa juga diproses lebih lanjut)
-        // dd();
-
-        // $role  = $result[0]['group_id'];
-        // dd($role);
-
-        // check login
-
-        // dd(in_groups('admin'));
-
         if (logged_in()) {
             // pengecekan role
             if (in_groups('admin')) {
@@ -50,10 +25,10 @@ class CheckRole extends BaseController
             } else if (in_groups('siswa')) {
                 return redirect()->to('/siswa/home');
             } else {
-                echo "anda guest!";
+                echo "anda tidak valid!";
             }
         } else {
-            return redirect()->to('/login');
+            return redirect()->to('/welcome');
         }
     }
 }

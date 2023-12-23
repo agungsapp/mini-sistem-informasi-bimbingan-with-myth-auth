@@ -27,7 +27,7 @@
             </a>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="<?= base_url('/register'); ?> ">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= base_url('/registerSiswa'); ?> ">Register</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?= base_url('/login'); ?> ">Login</a></li>
                 </ul>
             </div>
@@ -46,79 +46,6 @@
         </div>
     </header>
 
-    <!-- Daftar -->
-    <section class="page-section" id="daftar">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-lg-8 col-xl-6 text-center">
-                    <h2 style="font-weight: bold;" class="mt-0">Daftar</h2>
-                    <hr class="divider" />
-                    <p class="text-muted mb-5">Daftarkan anak anda ke Tanry Education Centre sekarang!</p>
-                </div>
-            </div>
-            <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
-                <div class="col-lg-6">
-                    <!-- * * * * * * * * * * * * * * *-->
-                    <!-- * * SB Forms Contact Form * *-->
-                    <!-- * * * * * * * * * * * * * * *-->
-                    <!-- This form is pre-integrated with SB Forms.-->
-                    <!-- To make this form functional, sign up at-->
-                    <!-- https://startbootstrap.com/solution/contact-forms-->
-                    <!-- to get an API token!-->
-                    <form id="registerForm" data-sb-form-api-token="API_TOKEN">
-                        <!-- Student Name input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="name" type="text" data-sb-validations="required" />
-                            <label for="studentname">Nama Calon Siswa</label>
-                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                        </div>
-                        <!-- Class input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="class" type="text" data-sb-validations="required" />
-                            <label for="class">Kelas Calon Siswa</label>
-                            <div class="invalid-feedback" data-sb-feedback="class:required">A class is required.</div>
-                        </div>
-
-                        <hr>
-
-                        <!-- Parent Name input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="name" type="text" data-sb-validations="required" />
-                            <label for="parentname">Nama Orang Tua</label>
-                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                        </div>
-                        <!-- Email address input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="email" type="email" data-sb-validations="required,email" />
-                            <label for="parentemail">Alamat Email</label>
-                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                        </div>
-                        <!-- Phone number input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="phone" type="tel" minlength="9" maxlength="14" data-sb-validations="required" />
-                            <label for="parentphone">Nomor Telepon / WA</label>
-                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                        </div>
-
-                        <!-- Submit success message-->
-                        <div class="d-none" id="submitSuccessMessage">
-                            <div class="text-center mb-3">
-                                <div class="fw-bolder"><br>Formulir pendaftaran berhasil dikirim!</div>
-                                Terima kasih, kami akan segera menghubungi anda untuk melakukan wawancara.
-                            </div>
-                        </div>
-                        <!-- Submit error message-->
-                        <div class="d-none" id="submitErrorMessage">
-                            <div class="text-center text-danger mb-3">Formulir pendaftaran gagal dikirimkan!</div>
-                        </div>
-                        <!-- Submit Button-->
-                        <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Submit</button></div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Announcement -->
     <section class="page-section bg-dark text-white" style="text-align: center;">
