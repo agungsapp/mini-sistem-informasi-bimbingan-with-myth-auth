@@ -3,26 +3,24 @@
 namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
+use CodeIgniter\I18n\Time;
 
 class AdminSeeder extends Seeder
 {
     public function run()
     {
+        $currentTime = Time::now();
+
         $data = [
-            [
-                'nama'        => 'administrator',
-                'username' => 'administrator',
-                'email' => 'admin@gmail.com',
-                'password_hash' => password_hash('admin123', PASSWORD_DEFAULT),
-            ],
+            'username'      => 'administrator',
+            'email'         => 'admin@gmail.com',
+            'password_hash' => '$2y$10$mvsJZwCKxrjFrNxhbT7xqeuHFB/xWiOGsFvmGIg46wsdTmXbE0DUK',
+            'active'        => 1, // Mengatur status aktif
+            'created_at'    => $currentTime->toDateTimeString(), // Timestamp saat ini
+            'updated_at'    => $currentTime->toDateTimeString(), // Timestamp saat ini
         ];
 
-        // Simple Queries
-        // foreach ($data as $row) {
-        //     $this->db->table('auth_groups')->insert($row);
-        // }
-
-        // Using Query Builder
-        $this->db->table('users')->insertBatch($data);
+        // Memasukkan data user
+        $this->db->table('users')->insert($data);
     }
 }

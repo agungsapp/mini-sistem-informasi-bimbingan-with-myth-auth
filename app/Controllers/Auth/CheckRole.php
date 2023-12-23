@@ -37,12 +37,12 @@ class CheckRole extends BaseController
 
         // check login
 
-        // dd(in_groups('guru'));
+        // dd(in_groups('admin'));
 
         if (logged_in()) {
             // pengecekan role
             if (in_groups('admin')) {
-                return redirect()->to('/admin/dashboard');
+                return redirect()->to('/admin/admin');
             } else if (in_groups('guru')) {
                 return redirect()->to('/guru/home');
             } else if (in_groups('parent')) {
