@@ -46,7 +46,7 @@
                       <td><?= $d->score; ?></td>
                       <td><?= $d->komentar; ?></td>
                       <td>
-                        <a href="#" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="/guru/learning/show/<?= $d->id; ?>" class="btn btn-sm btn-warning">Edit</a>
                         <a href="/guru/learning/delete/<?= $d->id; ?>" class="btn btn-sm btn-danger">Delete</a>
                       </td>
                     </tr>
