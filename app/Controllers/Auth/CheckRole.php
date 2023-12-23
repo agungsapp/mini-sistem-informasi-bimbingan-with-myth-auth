@@ -36,6 +36,9 @@ class CheckRole extends BaseController
         // dd($role);
 
         // check login
+
+        // dd(in_groups('guru'));
+
         if (logged_in()) {
             // pengecekan role
             if (in_groups('admin')) {

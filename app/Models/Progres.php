@@ -57,4 +57,10 @@ WHERE m.id_user = $id_guru")->getResult();
 
         return $query;
     }
+    public function getDataKomentarBySiswa($id_siswa)
+    {
+        $query = $this->db->query("SELECT u.nama as siswa, p.id , p.score, m.judul as mapel, p.komentar FROM progres p JOIN mapel m ON m.id_mapel = p.id_mapel JOIN users u ON u.id = p.id_siswa WHERE p.id_siswa = $id_siswa")->getResult();
+
+        return $query;
+    }
 }

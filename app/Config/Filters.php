@@ -72,5 +72,6 @@ class Filters extends BaseConfig
      */
     public array $filters = [
         'role:guru' => ['before' => ['guru/*']],
+        'role:siswa' => ['before' => ['siswa/*']],
     ];
 }

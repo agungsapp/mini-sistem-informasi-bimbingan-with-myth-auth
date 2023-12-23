@@ -66,4 +66,22 @@ class MapelModel extends Model
 
         return $results;
     }
+
+    public function getMapelSoal()
+    {
+        $query = $this->db->query("
+        SELECT m.id_mapel, m.judul, m.deskripsi, m.hari, m.jam, m.created_at, m.updated_at, b.id,
+            CASE 
+                WHEN COUNT(b.id_mapel) > 0 THEN 'true'
+                ELSE 'false' 
+            END AS is_have
+        FROM mapel m
+        LEFT JOIN bank_soal b ON b.id_mapel = m.id_mapel
+        GROUP BY m.id_mapel, m.judul, m.deskripsi, m.hari, m.jam, m.created_at, m.updated_at;
+        ");
+
+        $results = $query->getResult();
+
+        return $results;
+    }
 }
