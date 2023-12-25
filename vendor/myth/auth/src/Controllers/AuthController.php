@@ -95,11 +95,30 @@ class AuthController extends Controller
         if ($this->auth->user()->force_pass_reset === true) {
             return redirect()->to(route_to('reset-password') . '?token=' . $this->auth->user()->reset_hash)->withCookies();
         }
+        if ($this->auth->check()) {
+            // Gunakan helper 'auth' untuk mendapatkan user saat ini
+            $user = user();
 
-        $redirectURL = session('redirect_url') ?? site_url('/');
-        unset($_SESSION['redirect_url']);
+            // Gunakan helper 'in_groups' untuk cek grup user
+            if (in_groups('admin', $user->id)) {
+                // Redirect ke halaman admin
+                $redirectURL = '/admin/admin';
+            } elseif (in_groups('guru', $user->id)) {
+                // Redirect ke halaman guru
+                $redirectURL = '/guru/home';
+            } elseif (in_groups('parent', $user->id)) {
+                // Redirect ke halaman guru
+                $redirectURL = '/parent/home';
+            } elseif (in_groups('siswa', $user->id)) {
+                // Redirect ke halaman guru
+                $redirectURL = '/siswa/home';
+            } else {
+                // Redirect default atau tampilkan pesan error
+                $redirectURL = site_url('/check');
+            }
 
-        return redirect()->to($redirectURL)->withCookies()->with('message', lang('Auth.loginSuccess'));
+            return redirect()->to($redirectURL)->withCookies()->with('message', lang('Auth.loginSuccess'));
+        }
     }
 
     /**
@@ -235,7 +254,7 @@ class AuthController extends Controller
 
 
 
-    
+
     public function attemptRegisterOrtu()
     {
         // Check if registration is allowed

@@ -74,5 +74,6 @@ class Filters extends BaseConfig
         'role:admin' => ['before' => ['admin/*']],
         'role:guru' => ['before' => ['guru/*']],
         'role:siswa' => ['before' => ['siswa/*']],
+        'role:parent' => ['before' => ['parent/*']],
     ];
 }

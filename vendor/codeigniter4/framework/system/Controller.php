@@ -32,7 +32,7 @@ class Controller
      *
      * @var array
      */
-    protected $helpers = [];
+    protected $helpers = ['auth'];
 
     /**
      * Instance of the main Request object.
@@ -180,12 +180,12 @@ class Controller
 
             // If the rule wasn't found in the \Config\Validation, we
             // should throw an exception so the developer can find it.
-            if (! isset($validation->{$rules})) {
+            if (!isset($validation->{$rules})) {
                 throw ValidationException::forRuleNotFound($rules);
             }
 
             // If no error message is defined, use the error message in the Config\Validation file
-            if (! $messages) {
+            if (!$messages) {
                 $errorName = $rules . '_errors';
                 $messages  = $validation->{$errorName} ?? [];
             }

@@ -12,29 +12,26 @@
   <!-- Custom Font -->
   <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
 
-  <title>Tanry Education Centre | Guru</title>
+  <title>Tanry Education Centre | orang tua</title>
   <link id="logo" rel="shortcut icon" href="<?= base_url('/assets/images/teclogo.jpg'); ?>">
+  <link rel="stylesheet" href="<?= base_url('/assets/css/select.css'); ?>">
 
 </head>
 
 <body>
-
-
 
   <!-- HEADER + NAVBAR -->
   <div class="header">
     <header>
       <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <div class="container px-4 px-lg-5">
-          <a class="navbar-brand" href="<?= base_url('/guru/home'); ?> ">
+          <a class="navbar-brand" href="<?= base_url('/parent/home'); ?>">
             <img class="logoheader" style="margin-top: auto;" src="<?= base_url('/assets/images/logotec.jpg'); ?> ">
           </a>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto my-2 my-lg-0">
-              <li class="nav-item"><a class="nav-link <?= $nav == 1 ? 'active' : ''; ?> " href="<?= base_url('/guru/home'); ?>">HOME</a></li>
-              <li class="nav-item"><a class="nav-link <?= $nav == 2 ? 'active' : ''; ?> " href="<?= base_url('/guru/salary'); ?>">SALARY STATUS</a></li>
-              <li class="nav-item"><a class="nav-link <?= $nav == 3 ? 'active' : ''; ?> " href="<?= base_url('/guru/learning'); ?>">LEARNING PROGRESS</a></li>
-              <li class="nav-item"><a class="nav-link <?= $nav == 4 ? 'active' : ''; ?> " href="<?= base_url('/guru/tryOut'); ?>">TRY OUT</a></li>
+              <li class="nav-item"><a class="nav-link <?= $nav == 1 ? 'active' : ''; ?> " href="<?= base_url('/parent/home'); ?>">HOME</a></li>
+              <li class="nav-item"><a class="nav-link <?= $nav == 3 ? 'active' : ''; ?> " href="<?= base_url('/parent/learning'); ?>">LEARNING PROGRESS</a></li>
               <li class="nav-item"><a class="nav-link " href=" <?= base_url('/logout'); ?>">LOGOUT</a></li>
             </ul>
           </div>
@@ -42,7 +39,6 @@
       </nav>
     </header>
   </div>
-
 
   <!-- CONTENT -->
   <div id="wrapper" style="margin-top: 30px;">
@@ -52,9 +48,6 @@
 
     </div>
   </div>
-
-
-
 
   <!-- Footer -->
   <footer class="footer fixed-bottom">
@@ -73,7 +66,22 @@
   <!-- * *                               SB Forms JS                               * *-->
   <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
   <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
   <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+  <script src="<?= base_url('/assets/js/jquery.js'); ?>"></script>
+  <script src="<?= base_url('/assets/js/select.js'); ?>"></script>
+
+  <script>
+    // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+      $('.select2').select2({
+        placeholder: 'Select an option',
+        allowClear: true
+      });
+    });
+  </script>
 </body>
 <!-- <script src="js/script.js"></script> -->
 
